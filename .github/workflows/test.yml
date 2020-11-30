@@ -6,4 +6,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: docker://quay.io/terraform-docs/terraform-docs:0.10.1
         with:
-          args: ${{ github.workspace }}
+          args: /github/workspace
