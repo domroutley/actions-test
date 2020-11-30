@@ -4,8 +4,11 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: main
       - uses: actions/checkout@v2
         with:
+          path: wiki
           repository: ${{github.repository}}.wiki
       - run: ls -al
       - name: Render terraform docs inside the USAGE.md and push changes back to PR branch
@@ -15,3 +18,4 @@ jobs:
           tf_docs_content_type: document
           tf_docs_output_file: Docs.md
       - run: ls -al
+      - run: cat Docs.md
