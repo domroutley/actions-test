@@ -13,7 +13,7 @@ jobs:
         uses: Dirrk/terraform-docs@v1.0.8
         with:
           tf_docs_output_method: replace
-          tf_docs_content_type: document
+          tf_docs_content_type: table
           tf_docs_output_file: wiki/Docs.md
       - run: ls wiki/ && ls
       - run: cat wiki/Docs.md
