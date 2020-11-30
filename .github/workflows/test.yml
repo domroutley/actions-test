@@ -14,8 +14,9 @@ jobs:
       - name: Render terraform docs inside the USAGE.md and push changes back to PR branch
         uses: Dirrk/terraform-docs@v1.0.8
         with:
+          tf_docs_working_dir: main
           tf_docs_output_method: replace
           tf_docs_content_type: document
-          tf_docs_output_file: Docs.md
-      - run: ls -al
+          tf_docs_output_file: wiki/Docs.md
+      - run: ls wiki/ && ls main && ls
       - run: cat Docs.md
