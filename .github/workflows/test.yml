@@ -18,6 +18,7 @@ jobs:
       - run: ls wiki/ && ls
       - run: cat wiki/Docs.md
       - run: |
+          git status
           doCommit=$(git diff-index --quiet HEAD -- || echo true)
           echo $doCommit
           if [ $doCommit ]
@@ -26,7 +27,7 @@ jobs:
             git config user.email actions@github.com
             git add Docs.md
             git commit -m "Updated documentation"
-            git push hi
+            git push
           else
             echo "No changes to be commited."
           fi
