@@ -21,6 +21,8 @@ jobs:
           git config user.name terraform-docs
           git config user.email actions@github.com
           git add Docs.md
-          git commit -m "Updated documentation"
-          git push
+          if [ git commit -m "Updated documentation" ]
+          then
+            git push
+          fi
         working-directory: wiki/
