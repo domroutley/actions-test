@@ -17,3 +17,10 @@ jobs:
           tf_docs_output_file: wiki/Docs.md
       - run: ls wiki/ && ls
       - run: cat wiki/Docs.md
+      - run: |
+          git config user.name terraform-docs
+          git config user.email actions@github.com
+          git add Docs.md
+          git commit -m "Updated documentation"
+          git push
+        working-directory: wiki/
