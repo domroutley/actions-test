@@ -4,7 +4,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - uses: docker://quay.io/terraform-docs/terraform-docs:0.10.1
+      - name: Render terraform docs inside the USAGE.md and push changes back to PR branch
+        uses: Dirrk/terraform-docs@v1.0.8
         with:
-          args: /github/workspace > example.md
-      - run: cat example.md
+          tf_docs_output_method: replace
+          tf_docs_content_type: document
+      - run: cat USAGE.md
